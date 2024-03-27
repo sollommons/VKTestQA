@@ -1,4 +1,4 @@
-package ru.mycomp.FirstHomework;
+package ru.mycomp.Homework1;
 
 public class Person {
     private int age;
