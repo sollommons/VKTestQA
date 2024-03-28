@@ -10,7 +10,7 @@ public class NewsPage {
 
     private SelenideElement searchField = $x("//input[@name='st.query']");
     private SelenideElement mainPageButton = $x("//*[@id=\"hook_Block_Navigation\"]/div/div/div[1]/a/div");
-
+    private SelenideElement publicateButton = $x("//*[@id=\"hook_Block_PostingFormDropdown\"]/posting-form-dropdown/div/button");
     public void set(String name){
         searchField.shouldBe(visible).setValue(name);
         searchField.shouldHave(value(name));
@@ -24,5 +24,9 @@ public class NewsPage {
     public MainPage goToMainPage(){
         mainPageButton.shouldBe(visible).click();
         return new MainPage();
+    }
+
+    public void chooseToPublicate() {
+        publicateButton.shouldBe(visible).click();
     }
 }

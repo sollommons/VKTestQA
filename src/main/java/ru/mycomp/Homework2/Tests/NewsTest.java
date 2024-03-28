@@ -27,6 +27,12 @@ public class NewsTest {
     }
 
     @Test
+    public void publicateSmth()
+    {
+        newsPage.chooseToPublicate();
+        $(byText("Заметка, рассказ любой длины")).shouldBe(visible);
+    }
+    @Test
     public void okFriends() {
         newsPage.set("technopol66");
         newsPage.search();
