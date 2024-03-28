@@ -1,34 +1,40 @@
 package ru.mycomp.Homework2.Tests;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.mycomp.Homework2.Pages.NewsPage;
-import ru.mycomp.Homework2.Pages.LoginPage;
 import ru.mycomp.Homework2.BrowserConfig;
+import ru.mycomp.Homework2.Pages.LoginPage;
+import ru.mycomp.Homework2.Pages.MainPage;
+import ru.mycomp.Homework2.Pages.NewsPage;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginTest {
-    LoginPage loginPage = new LoginPage();
+public class MainPageTest {
     BrowserConfig browserConfig = new BrowserConfig();
+    MainPage mainPage;
+
 
 
     @BeforeEach
     public void setup(){
         browserConfig.setupConf();
-    }
-
-    @Test
-    public void okLogin() {
+        LoginPage loginPage = new LoginPage();
         loginPage.open();
         loginPage.setInfo("technopol60", "technopolisPassword");
         NewsPage newsPage = loginPage.login();
-        $(byText("Рекомендация игры")).shouldBe(visible);
+        mainPage = newsPage.goToMainPage();
     }
 
-     @AfterEach
+    @Test
+    public void okUserInfo() {
+        mainPage.copyUrl();
+        $(byText("Копировать ссылку")).shouldBe(visible);
+    }
+
+    @AfterEach
     public void end(){
         browserConfig.endJob();
     }
