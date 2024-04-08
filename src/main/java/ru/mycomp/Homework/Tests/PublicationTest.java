@@ -1,11 +1,8 @@
-package ru.mycomp.Homework2.Tests;
+package ru.mycomp.Homework.Tests;
 
 import org.junit.jupiter.api.*;
-import ru.mycomp.Homework2.Core.Pages.NewsPage;
-import ru.mycomp.Homework2.Core.Pages.UserPage;
-
-import static com.codeborne.selenide.Selenide.sleep;
-import static ru.mycomp.Homework2.Core.Pages.BasePage.userButton;
+import ru.mycomp.Homework.Core.Pages.NewsPage;
+import ru.mycomp.Homework.Core.Pages.UserPage;
 
 
 public class PublicationTest extends BaseTest{

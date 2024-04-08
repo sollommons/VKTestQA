@@ -1,4 +1,4 @@
-package ru.mycomp.Homework2.Core.Pages;
+package ru.mycomp.Homework.Core.Pages;
 
 import com.codeborne.selenide.SelenideElement;
 

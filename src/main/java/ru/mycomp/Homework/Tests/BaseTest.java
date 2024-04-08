@@ -1,15 +1,15 @@
-package ru.mycomp.Homework2.Tests;
+package ru.mycomp.Homework.Tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import ru.mycomp.Homework2.Core.Pages.LoginPage;
-import ru.mycomp.Homework2.Core.Pages.NewsPage;
+import ru.mycomp.Homework.Core.Pages.LoginPage;
+import ru.mycomp.Homework.Core.Pages.NewsPage;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
-import static ru.mycomp.Homework2.Core.Pages.BasePage.logOut;
+import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 
 public class BaseTest {
 

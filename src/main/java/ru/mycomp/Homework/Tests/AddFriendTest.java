@@ -1,12 +1,11 @@
-package ru.mycomp.Homework2.Tests;
+package ru.mycomp.Homework.Tests;
 
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import ru.mycomp.Homework2.Core.Pages.FriendPage;
-import ru.mycomp.Homework2.Core.Pages.NewsPage;
-import ru.mycomp.Homework2.Core.Pages.SearchPage;
+import ru.mycomp.Homework.Core.Pages.FriendPage;
+import ru.mycomp.Homework.Core.Pages.NewsPage;
+import ru.mycomp.Homework.Core.Pages.SearchPage;
 
 
 public class AddFriendTest extends BaseTest {

@@ -1,13 +1,11 @@
-package ru.mycomp.Homework2.Tests;
+package ru.mycomp.Homework.Tests;
 
 import org.junit.jupiter.api.*;
-import ru.mycomp.Homework2.Core.Pages.NewsPage;
-import ru.mycomp.Homework2.Core.Pages.UserPage;
+import ru.mycomp.Homework.Core.Pages.NewsPage;
+import ru.mycomp.Homework.Core.Pages.UserPage;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-
-import static ru.mycomp.Homework2.Core.Pages.BasePage.userButton;
 
 public class UserPageTest extends BaseTest{
     private UserPage userPage;

@@ -1,13 +1,13 @@
-package ru.mycomp.Homework2.Tests;
+package ru.mycomp.Homework.Tests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.mycomp.Homework2.Core.Pages.SettingPage;
-import ru.mycomp.Homework2.Core.Pages.UserPage;
+import ru.mycomp.Homework.Core.Pages.SettingPage;
+import ru.mycomp.Homework.Core.Pages.UserPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static ru.mycomp.Homework2.Core.Pages.BasePage.userButton;
+import static ru.mycomp.Homework.Core.Pages.BasePage.userButton;
 
 public class ChangeThemeTest extends BaseTest {
     SettingPage settingPage;

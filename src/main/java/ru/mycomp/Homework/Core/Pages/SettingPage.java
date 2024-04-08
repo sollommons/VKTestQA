@@ -1,8 +1,6 @@
-package ru.mycomp.Homework2.Core.Pages;
+package ru.mycomp.Homework.Core.Pages;
 
 import com.codeborne.selenide.SelenideElement;
-
-import java.util.Set;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;

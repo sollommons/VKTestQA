@@ -1,8 +1,8 @@
-package ru.mycomp.Homework2.Tests;
+package ru.mycomp.Homework.Tests;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.mycomp.Homework2.Core.Pages.NewsPage;
-import ru.mycomp.Homework2.Core.Pages.LoginPage;
+import ru.mycomp.Homework.Core.Pages.NewsPage;
+import ru.mycomp.Homework.Core.Pages.LoginPage;
 
 
 
