@@ -1,35 +1,19 @@
 package ru.mycomp.Homework2.Tests;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.mycomp.Homework2.Pages.NewsPage;
-import ru.mycomp.Homework2.Pages.LoginPage;
-import ru.mycomp.Homework2.BrowserConfig;
-
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-
-public class LoginTest {
-    LoginPage loginPage = new LoginPage();
-    BrowserConfig browserConfig = new BrowserConfig();
+import ru.mycomp.Homework2.Core.Pages.NewsPage;
+import ru.mycomp.Homework2.Core.Pages.LoginPage;
 
 
-    @BeforeEach
-    public void setup(){
-        browserConfig.setupConf();
-    }
+
+public class LoginTest extends BaseTest{
+    private LoginPage loginPage = new LoginPage();
 
     @Test
-    public void okLogin() {
+    public void loginToOK() {
         loginPage.open();
         loginPage.setInfo("technopol60", "technopolisPassword");
         NewsPage newsPage = loginPage.login();
-        $(byText("Рекомендация игры")).shouldBe(visible);
-    }
-
-     @AfterEach
-    public void end(){
-        browserConfig.endJob();
+        Assertions.assertTrue(newsPage.checkMoment(), "Открылась не та страница");
     }
 }
