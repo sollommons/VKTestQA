@@ -2,7 +2,7 @@ package ru.mycomp.Homework.Core.Pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -26,6 +26,6 @@ public class BasePage {
     public static void logOut() {
         miniUserToolbar.shouldBe(visible).click();
         exitButton.shouldBe(visible).click();
-        confirmationOfExitButton.shouldBe(visible).click();
+        confirmationOfExitButton.shouldBe(enabled).click();
     }
 }

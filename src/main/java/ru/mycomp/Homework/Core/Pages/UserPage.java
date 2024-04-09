@@ -7,8 +7,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
-import static com.codeborne.selenide.Condition.enabled;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
@@ -37,13 +36,13 @@ public class UserPage extends BasePage{
 
     }
     public String copyUrl() throws IOException, UnsupportedFlavorException {
-        shareButton.shouldBe(visible).click();
+        shareButton.shouldBe(interactable).click();
         $(byText("Копировать ссылку")).shouldBe(visible).click();
         return (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
     }
 
     public void chooseToPublicate() {
-        publicateButton.shouldBe(visible).click();
+        publicateButton.shouldBe(interactable).click();
         noticeButton.shouldBe(visible).click();
     }
 
@@ -57,7 +56,7 @@ public class UserPage extends BasePage{
     }
 
     public void deletePublication() {
-        publicationActionButton.shouldBe(visible).click();
+        publicationActionButton.shouldBe(interactable).click();
         deletePublicationButton.shouldBe(visible).click();
         confirmDeleteButton.shouldBe(visible).click();
     }

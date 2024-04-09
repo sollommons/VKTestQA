@@ -12,11 +12,18 @@ import static com.codeborne.selenide.Selenide.$;
 public class NewsPage extends BasePage{
 
     private SelenideElement searchField = $(byXpath("//input[@name='st.query']"));
+    private SelenideElement momentsButton = $(byXpath("//button[@data-l='t,to_moments']"));
+    private SelenideElement upperHobbyButton = $(byXpath("//button[@data-l='t,to_hobbies']"));
+    private SelenideElement blockFriendsStream = $(byXpath("//div[@data-sticky-id='friendsStream']"));
+
     public NewsPage(){
         checkPage();
     }
     private void checkPage()
     {
+        momentsButton.shouldBe(visible);
+        upperHobbyButton.shouldBe(visible);
+        blockFriendsStream.shouldBe(visible);
     }
     public void set(String name){
         searchField.shouldBe(visible).setValue(name);

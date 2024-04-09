@@ -12,6 +12,15 @@ public class LoginPage{
     private SelenideElement passwordField = $(byXpath("//input[@id='field_password']"));
     private SelenideElement loginButton = $(byXpath("//*[@value='Войти в Одноклассники']"));
 
+    public LoginPage() {
+        checkPage();
+    }
+
+    public void checkPage(){
+        loginField.shouldBe(visible);
+        passwordField.shouldBe(visible);
+        loginButton.shouldBe(visible);
+    }
     public LoginPage open() {
         Selenide.open("/");
         return this;
