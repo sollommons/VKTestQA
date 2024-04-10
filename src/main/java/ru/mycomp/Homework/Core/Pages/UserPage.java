@@ -1,69 +1,70 @@
 package ru.mycomp.Homework.Core.Pages;
 
-import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
-import java.awt.*;
+import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.interactable;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
+public class UserPage extends BasePage {
 
-public class UserPage extends BasePage{
-    private  SelenideElement shareButton = $(byXpath("//*[@data-l='outlandertarget,share,t,share']"));
-    private SelenideElement settingButton = $(byXpath("//*[@data-l='outlandertarget,settings,t,settings']"));
-    private SelenideElement publicateButton =  $(byXpath("//button[@data-l='t,pf_dropdown']"));
-    private SelenideElement noticeButton = $(byXpath("//span[@data-l='t,feed.posting.ui.input']"));
-    private SelenideElement textOfPublicationField = $(byXpath("//div[@data-module='postingForm/mediaText']"));
+    private By shareButton = byXpath("//*[@data-l='outlandertarget,share,t,share']");
+    private By settingButton = byXpath("//*[@data-l='outlandertarget,settings,t,settings']");
+    private By publicateButton = byXpath("//button[@data-l='t,pf_dropdown']");
+    private By noticeButton = byXpath("//span[@data-l='t,feed.posting.ui.input']");
+    private By textOfPublicationField = byXpath("//div[@data-module='postingForm/mediaText']");
+    private By submitPublicationButton = byXpath("//button[@data-l='t,button.submit']");
+    private By publicationActionButton = byXpath("//div[@data-l='t,feed-actions-menu']");
+    private By deletePublicationButton = byText("Удалить заметку");
+    private By confirmDeleteButton = byXpath("//a[@class='button-pro __small form-actions_yes']");
+    private By myEventsButton = byXpath("//a[@id='tab-344']");
 
-    private SelenideElement submitPublicationButton = $(byXpath("//button[@data-l='t,button.submit']"));
-    private SelenideElement publicationActionButton = $(byXpath("//div[@data-l='t,feed-actions-menu']"));
-    private SelenideElement deletePublicationButton = $(byText("Удалить заметку"));
-    private SelenideElement confirmDeleteButton = $(byXpath("//a[@class='button-pro __small form-actions_yes']"));
-
-    private SelenideElement myEventsButton = $(byXpath("//a[@id='tab-344']"));
     public UserPage() {
         checkPage();
     }
-    private void checkPage(){
-        shareButton.shouldBe(visible);
-        settingButton.shouldBe(visible);
-        myEventsButton.shouldBe(visible);
 
+    private void checkPage() {
+        $(shareButton).shouldBe(visible.because("Share button should be visible user page"));
+        $(settingButton).shouldBe(visible.because("Settings button should be visible user page"));
+        $(myEventsButton).shouldBe(visible.because("Events button should be visible user page"));
     }
+
     public String copyUrl() throws IOException, UnsupportedFlavorException {
-        shareButton.shouldBe(interactable).click();
-        $(byText("Копировать ссылку")).shouldBe(visible).click();
+        $(shareButton).shouldBe(interactable.because("Share button should be interactable to share")).click();
+        $(byText("Копировать ссылку")).shouldBe(visible.because("Copy button should be visible to use")).click();
         return (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
     }
 
     public void chooseToPublicate() {
-        publicateButton.shouldBe(interactable).click();
-        noticeButton.shouldBe(visible).click();
+        $(publicateButton).shouldBe(interactable.because("Publicate button should be interactable to publicate")).click();
+        $(noticeButton).shouldBe(visible.because("Noitce button should be visible to choose")).click();
     }
 
     public void publicate() {
-        textOfPublicationField.shouldBe(visible).setValue("Приветственная публикация");
-        submitPublicationButton.shouldBe(enabled).click();
+        $(textOfPublicationField).shouldBe(visible.because("Field should be visible to write")).setValue("Приветственная публикация");
+        $(submitPublicationButton).shouldBe(enabled.because("Submit button should be enabled to publicate")).click();
     }
 
-    public String checkPublication(){
+    public String checkPublication() {
         return $(byText("Приветственная публикация")).text();
     }
 
     public void deletePublication() {
-        publicationActionButton.shouldBe(interactable).click();
-        deletePublicationButton.shouldBe(visible).click();
-        confirmDeleteButton.shouldBe(visible).click();
+        $(publicationActionButton).shouldBe(interactable.because("actions should be interactable to use")).click();
+        $(deletePublicationButton).shouldBe(visible.because("delete button should be visible to choose")).click();
+        $(confirmDeleteButton).shouldBe(visible.because("Confirm button should be visible to delete")).click();
     }
 
-    public SettingPage openSettings()
-    {
-        settingButton.shouldBe(visible).click();
+    public SettingPage openSettings() {
+        $(settingButton).shouldBe(visible.because("Settings button should be visible to open settings")).click();
         return new SettingPage();
     }
 }

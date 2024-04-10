@@ -1,39 +1,41 @@
 package ru.mycomp.Homework.Core.Pages;
+
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
+public class LoginPage {
 
-public class LoginPage{
-    private SelenideElement loginField = $(byXpath("//input[@id='field_email']"));
-    private SelenideElement passwordField = $(byXpath("//input[@id='field_password']"));
-    private SelenideElement loginButton = $(byXpath("//*[@value='Войти в Одноклассники']"));
+    private By loginField = byXpath("//input[@id='field_email']");
+    private By passwordField = byXpath("//input[@id='field_password']");
+    private By loginButton = byXpath("//*[@value='Войти в Одноклассники']");
 
     public LoginPage() {
         checkPage();
     }
 
-    public void checkPage(){
-        loginField.shouldBe(visible);
-        passwordField.shouldBe(visible);
-        loginButton.shouldBe(visible);
+    public void checkPage() {
+        $(loginField).shouldBe(visible.because("Login field should be visible on login page"));
+        $(passwordField).shouldBe(visible.because("Password field should be visible on login page"));
+        $(loginButton).shouldBe(visible.because("Login button should be visible on login page"));
     }
+
     public LoginPage open() {
         Selenide.open("/");
         return this;
     }
 
-    public void setInfo(String login, String password){
-        loginField.shouldBe(visible).setValue(login);
-        passwordField.shouldBe(visible).setValue(password);
+    public void setInfo(String login, String password) {
+        $(loginField).shouldBe(visible.because("Login field should be visible for users to set login")).setValue(login);
+        $(passwordField).shouldBe(visible.because("Password field should be visible for users to set password")).setValue(password);
     }
 
-    public NewsPage login()
-    {
-        loginButton.shouldBe(visible).click();
+    public NewsPage login() {
+        $(loginButton).shouldBe(visible.because("Login button should be visible to enter")).click();
         return new NewsPage();
     }
 }

@@ -4,22 +4,18 @@ import org.junit.jupiter.api.*;
 import ru.mycomp.Homework.Core.Pages.NewsPage;
 import ru.mycomp.Homework.Core.Pages.UserPage;
 
-
-public class PublicationTest extends BaseTest{
-
-
+public class PublicationTest extends BaseTest {
     private UserPage userPage;
     private NewsPage newsPage;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         newsPage = authorize();
     }
 
     @Test
     @Tag("user")
-    public void publicateSmth()
-    {
+    public void publicateSmth() {
         userPage = newsPage.openUserPage();
         userPage.chooseToPublicate();
         userPage.publicate();
@@ -29,7 +25,7 @@ public class PublicationTest extends BaseTest{
 
     @AfterEach
     public void tearDown() {
-       userPage.deletePublication();
+        userPage.deletePublication();
     }
 
 }
