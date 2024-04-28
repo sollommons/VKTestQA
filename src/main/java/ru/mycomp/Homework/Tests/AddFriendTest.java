@@ -21,7 +21,6 @@ public class AddFriendTest extends BaseTest {
 
     @BeforeEach
     public void setup() {
-        Selenide.open("/");
         LoginPage loginPage = new LoginPage();
         newsPage = loginPage.authorize(login, password);
     }
