@@ -24,6 +24,13 @@ public class BasePage {
     public static By exitButton = byXpath("//a[@data-l='t,logout']");
     public static By confirmationOfExitButton = byXpath("//input[@data-l='t,logout']");
 
+    protected void checkPage()  {
+        $(newsButton).shouldBe(visible.because("News button should be on every page"));
+        $(friendsButton).shouldBe(visible.because("Friends of Subscribing button should be on every page"));
+        $(groupsButton).shouldBe(visible.because("Groups info button should be on every page"));
+        $(recomendationButton).shouldBe(visible.because("Recommendation button should be on every page"));
+        $(photoButton).shouldBe(visible.because("Photo button should be on every page"));
+    }
     public static void logOut() {
         $(miniUserToolbar).shouldBe(visible.because("Mini toolbar should be on every page")).click();
         $(exitButton).shouldBe(visible.because("Exit button should be on every page")).click();

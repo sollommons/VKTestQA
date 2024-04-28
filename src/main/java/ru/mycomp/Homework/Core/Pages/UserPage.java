@@ -24,14 +24,15 @@ public class UserPage extends BasePage {
     private By submitPublicationButton = byXpath("//button[@data-l='t,button.submit']");
     private By publicationActionButton = byXpath("//div[@data-l='t,feed-actions-menu']");
     private By deletePublicationButton = byText("Удалить заметку");
-    private By confirmDeleteButton = byXpath("//a[@class='button-pro __small form-actions_yes']");
-    private By myEventsButton = byXpath("//a[@id='tab-344']");
-
+    private By confirmDeleteButton = byXpath("//*[@class='form-actions']/a[1]");
+    private By myEventsButton = byXpath("//*[@data-l='t,filter']/a[3]");
     public UserPage() {
         checkPage();
     }
 
-    private void checkPage() {
+    @Override
+    protected void checkPage() {
+        super.checkPage();
         $(shareButton).shouldBe(visible.because("Share button should be visible user page"));
         $(settingButton).shouldBe(visible.because("Settings button should be visible user page"));
         $(myEventsButton).shouldBe(visible.because("Events button should be visible user page"));

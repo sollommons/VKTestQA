@@ -19,7 +19,9 @@ public class NewsPage extends BasePage {
         checkPage();
     }
 
-    private void checkPage() {
+    @Override
+    protected void checkPage() {
+        super.checkPage();
         $(momentsButton).shouldBe(visible.because("Moments should be visible news page"));
         $(upperHobbyButton).shouldBe(visible.because("Hobby button should be visible news page"));
         $(blockFriendsStream).shouldBe(visible.because("Friends stream should be visible news page"));

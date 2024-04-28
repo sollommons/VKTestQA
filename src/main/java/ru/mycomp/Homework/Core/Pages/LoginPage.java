@@ -29,8 +29,11 @@ public class LoginPage {
         return this;
     }
 
-    public void setInfo(String login, String password) {
+    public void setLogin(String login) {
         $(loginField).shouldBe(visible.because("Login field should be visible for users to set login")).setValue(login);
+    }
+
+    public void setPassword(String password) {
         $(passwordField).shouldBe(visible.because("Password field should be visible for users to set password")).setValue(password);
     }
 

@@ -9,11 +9,10 @@ import ru.mycomp.Homework.Core.Pages.NewsPage;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
-import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 
 public class BaseTest {
-    private static final String login = "technopol60";
-    private static final String password = "technopolisPassword";
+    protected static final String login = "technopol60";
+    protected static final String password = "technopolisPassword";
 
     @BeforeAll
     public static void setupConf() {
@@ -22,15 +21,8 @@ public class BaseTest {
         Selenide.open("/");
     }
 
-    public static NewsPage authorize() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.setInfo(login, password);
-        return loginPage.login();
-    }
-
     @AfterEach
     public void endJob() {
-        logOut();
         clearBrowserCache();
         Selenide.closeWebDriver();
     }

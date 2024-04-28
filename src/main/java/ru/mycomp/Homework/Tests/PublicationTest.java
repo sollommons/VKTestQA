@@ -1,8 +1,11 @@
 package ru.mycomp.Homework.Tests;
 
 import org.junit.jupiter.api.*;
+import ru.mycomp.Homework.Core.Pages.LoginPage;
 import ru.mycomp.Homework.Core.Pages.NewsPage;
 import ru.mycomp.Homework.Core.Pages.UserPage;
+
+import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 
 public class PublicationTest extends BaseTest {
     private UserPage userPage;
@@ -10,7 +13,10 @@ public class PublicationTest extends BaseTest {
 
     @BeforeEach
     public void setup() {
-        newsPage = authorize();
+        LoginPage loginPage = new LoginPage();
+        loginPage.setLogin(login);
+        loginPage.setPassword(password);
+        newsPage = loginPage.login();
     }
 
     @Test
@@ -26,6 +32,7 @@ public class PublicationTest extends BaseTest {
     @AfterEach
     public void tearDown() {
         userPage.deletePublication();
+        logOut();
     }
 
 }

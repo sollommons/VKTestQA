@@ -13,13 +13,15 @@ public class FriendPage extends BasePage {
     private By cancelApplicationButton = byXpath("//a[@aria-label='Отменить запрос']");
     private By writeMessageButton = byXpath("//*[@data-l='outlandertarget,sendMessage,t,sendMessage']");
     private By settingOfSubscribingButton = byXpath("//button[@aria-label='Настроить подписку на профиль']");
-    private By importantInfoButton = byXpath("//a[@id='tab-304']");
+    private By importantInfoButton = byXpath("//*[@data-l='t,filter']/a[2]");
 
     public FriendPage() {
         checkPage();
     }
 
-    private void checkPage() {
+    @Override
+    protected void checkPage() {
+        super.checkPage();
         $(writeMessageButton).shouldBe(visible.because("Message button should be on friend page"));
         $(settingOfSubscribingButton).shouldBe(visible.because("Settings of Subscribing button should be on friend page"));
         $(importantInfoButton).shouldBe(visible.because("Important info button should be on friend page"));
