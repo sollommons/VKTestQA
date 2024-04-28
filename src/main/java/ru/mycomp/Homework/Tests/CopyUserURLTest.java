@@ -26,7 +26,7 @@ public class CopyUserURLTest extends BaseTest {
     @Tag("user")
     @DisplayName("Copy user's URL")
     public void copyUserURL() throws IOException, UnsupportedFlavorException {
-        String userURl = "";
+        String userURl;
         userURl = userPage.copyUrl();
         Assertions.assertEquals("https://ok.ru/profile/586489906527?utm_campaign=web_share&utm_content=profile", userURl,
                 "Ссылка скопирована неправильно");
