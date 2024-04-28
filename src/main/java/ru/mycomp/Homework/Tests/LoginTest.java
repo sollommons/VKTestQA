@@ -9,11 +9,9 @@ import ru.mycomp.Homework.Core.Pages.LoginPage;
 import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 
 public class LoginTest extends BaseTest {
-    private LoginPage loginPage;
-
     @Test
     public void loginToOK() {
-        loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage();
         loginPage.open();
         loginPage.setLogin(login);
         loginPage.setPassword(password);

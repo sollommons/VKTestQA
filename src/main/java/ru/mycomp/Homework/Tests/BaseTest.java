@@ -4,8 +4,6 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import ru.mycomp.Homework.Core.Pages.LoginPage;
-import ru.mycomp.Homework.Core.Pages.NewsPage;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;

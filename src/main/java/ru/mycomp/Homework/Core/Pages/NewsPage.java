@@ -44,6 +44,6 @@ public class NewsPage extends BasePage {
     }
 
     public boolean checkMoment() {
-        return (($(byText("Моменты")).exists()) ? true : false);
+        return ($(byText("Моменты")).exists());
     }
 }
