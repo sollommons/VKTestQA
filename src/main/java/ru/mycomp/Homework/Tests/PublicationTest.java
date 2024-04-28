@@ -14,9 +14,7 @@ public class PublicationTest extends BaseTest {
     @BeforeEach
     public void setup() {
         LoginPage loginPage = new LoginPage();
-        loginPage.setLogin(login);
-        loginPage.setPassword(password);
-        newsPage = loginPage.login();
+        newsPage = loginPage.authorize(login, password);
     }
 
     @Test

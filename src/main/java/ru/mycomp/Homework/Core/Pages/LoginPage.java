@@ -41,4 +41,10 @@ public class LoginPage {
         $(loginButton).shouldBe(visible.because("Login button should be visible to enter")).click();
         return new NewsPage();
     }
+
+    public NewsPage authorize(String login, String password) {
+        setLogin(login);
+        setPassword(password);
+        return login();
+    }
 }

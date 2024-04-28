@@ -23,9 +23,7 @@ public class AddFriendTest extends BaseTest {
     public void setup() {
         Selenide.open("/");
         LoginPage loginPage = new LoginPage();
-        loginPage.setLogin(login);
-        loginPage.setPassword(password);
-        newsPage = loginPage.login();
+        newsPage = loginPage.authorize(login, password);
     }
 
     @ParameterizedTest(name = "{index} - {0} was added")
