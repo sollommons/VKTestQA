@@ -1,5 +1,6 @@
 package ru.mycomp.Homework.Tests;
 
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
 import ru.mycomp.Homework.Core.Pages.LoginPage;
 import ru.mycomp.Homework.Core.Pages.NewsPage;
@@ -12,12 +13,14 @@ public class PublicationTest extends BaseTest {
     private NewsPage newsPage;
 
     @BeforeEach
-    public void setup() {
+    public void setup()
+    {
+        Selenide.open("/");
         LoginPage loginPage = new LoginPage();
         newsPage = loginPage.authorize(login, password);
     }
 
-    @Test
+    @RepeatedTest(value = 3, name = "Test number {currentRepetition}/{totalRepetitions}")
     @Tag("user")
     public void publicateSmth() {
         userPage = newsPage.openUserPage();
