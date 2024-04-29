@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage extends BasePage {
 
-    private By friendProfileButton = byXpath("//*[@id='tabpanel-users']/div[2]/div[1]/div/div/a");
+    private By friendProfileButton = byXpath("//*[contains(@data-l, '\"position\":0')and contains(@data-l,'\"target\":\"NAME\"')]");
     private By upperPeopleButton = byXpath("//button[@id='tab-users']");
     private By upperPublicationsButton = byXpath("//button[@id='tab-publications']");
     private By upperGroupsButton = byXpath("//button[@id='tab-groups']");
