@@ -8,7 +8,6 @@ import ru.mycomp.Homework.Core.Pages.UserPage;
 import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 
 public class PublicationTest extends BaseTest {
-    private UserPage userPage;
     private NewsPage newsPage;
 
     @BeforeEach
@@ -30,6 +29,7 @@ public class PublicationTest extends BaseTest {
 
     @AfterEach
     public void tearDown() {
+        UserPage userPage = new UserPage();
         userPage.deletePublication();
         logOut();
     }

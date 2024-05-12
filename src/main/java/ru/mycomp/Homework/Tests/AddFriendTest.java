@@ -1,7 +1,6 @@
 package ru.mycomp.Homework.Tests;
 
 
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +10,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ru.mycomp.Homework.Core.Pages.FriendPage;
 import ru.mycomp.Homework.Core.Pages.LoginPage;
 import ru.mycomp.Homework.Core.Pages.NewsPage;
-import ru.mycomp.Homework.Core.Pages.SearchPage;
 
 import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 

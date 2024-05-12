@@ -3,9 +3,8 @@ package ru.mycomp.Homework.Tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import ru.mycomp.Homework.Core.objects.TestBot;
+import ru.mycomp.Homework.Core.Objects.TestBot;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;

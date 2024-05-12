@@ -2,7 +2,6 @@ package ru.mycomp.Homework.Tests;
 
 import org.junit.jupiter.api.*;
 import ru.mycomp.Homework.Core.Pages.LoginPage;
-import ru.mycomp.Homework.Core.Pages.NewsPage;
 import ru.mycomp.Homework.Core.Pages.UserPage;
 
 import java.awt.datatransfer.UnsupportedFlavorException;

@@ -2,6 +2,7 @@ package ru.mycomp.Homework.Core.Pages;
 
 import org.openqa.selenium.By;
 import ru.mycomp.Homework.Core.Elements.NavigationBlockElement;
+import ru.mycomp.Homework.Core.Elements.ToolBarElement;
 
 import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Condition.visible;
@@ -17,6 +18,7 @@ public class NewsPage extends BasePage {
     private static final By blockFriendsStream = byXpath("//div[@data-sticky-id='friendsStream']");
 
     private final NavigationBlockElement navBlock = new NavigationBlockElement();
+    private final ToolBarElement toolBar = new ToolBarElement();
 
     public NewsPage() {
         checkPage();
@@ -44,6 +46,10 @@ public class NewsPage extends BasePage {
 
     public UserPage openUserPage() {
         return navBlock.openUserPage();
+    }
+
+    public MessagePage openMsgPage() {
+        return toolBar.openMessages();
     }
 
     public boolean checkMoment() {

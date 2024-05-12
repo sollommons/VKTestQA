@@ -1,4 +1,4 @@
-package ru.mycomp.Homework.Core.objects;
+package ru.mycomp.Homework.Core.Objects;
 
 public record TestBot(String login, String password) {
 }
