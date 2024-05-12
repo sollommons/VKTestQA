@@ -15,7 +15,7 @@ public class PublicationTest extends BaseTest {
     public void setup()
     {
         LoginPage loginPage = new LoginPage();
-        newsPage = loginPage.authorize(login, password);
+        newsPage = loginPage.authorize(TEST_BOT.login(), TEST_BOT.password());
     }
 
     @RepeatedTest(value = 3, name = "Test number {currentRepetition}/{totalRepetitions}")

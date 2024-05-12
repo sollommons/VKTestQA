@@ -22,7 +22,7 @@ public class AddFriendTest extends BaseTest {
     @BeforeEach
     public void setup() {
         LoginPage loginPage = new LoginPage();
-        newsPage = loginPage.authorize(login, password);
+        newsPage = loginPage.authorize(TEST_BOT.login(), TEST_BOT.password());
     }
 
     @ParameterizedTest(name = "{index} - {0} was added")

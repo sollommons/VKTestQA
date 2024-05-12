@@ -15,7 +15,7 @@ public class ChangeThemeTest extends BaseTest {
     @BeforeEach
     public void setup() {
         LoginPage loginPage = new LoginPage();
-        settingPage = loginPage.authorize(login, password)
+        settingPage = loginPage.authorize(TEST_BOT.login(), TEST_BOT.password())
                 .openUserPage()
                 .openSettings();
     }
