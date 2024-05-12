@@ -12,8 +12,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginToOK() {
         NewsPage newsPage = new LoginPage()
-                .setLogin(login)
-                .setPassword(password)
+                .setLogin(TEST_BOT.login())
+                .setPassword(TEST_BOT.password())
                 .login();
         Assertions.assertTrue(newsPage.checkMoment(), "Открылась не та страница");
     }

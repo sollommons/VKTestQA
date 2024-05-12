@@ -1,18 +1,17 @@
 package ru.mycomp.Homework.Core.Pages;
 
 import org.openqa.selenium.By;
-import ru.mycomp.Homework.Core.Elements.NavigationBlockElement;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class BasePage implements NavigationBlockElement, LoadablePage {
+public class BasePage implements LoadablePage {
 
-    public static By miniUserToolbar = byXpath("//button[@aria-label='Настройки профиля']");
-    public static By exitButton = byXpath("//a[@data-l='t,logout']");
-    public static By confirmationOfExitButton = byXpath("//input[@data-l='t,logout']");
+    public static final By miniUserToolbar = byXpath("//button[@aria-label='Настройки профиля']");
+    public static final By exitButton = byXpath("//a[@data-l='t,logout']");
+    public static final By confirmationOfExitButton = byXpath("//input[@data-l='t,logout']");
 
     public static void logOut() {
         $(miniUserToolbar).shouldBe(visible.because("Mini toolbar should be on every page")).click();
@@ -22,11 +21,7 @@ public class BasePage implements NavigationBlockElement, LoadablePage {
 
     @Override
     public boolean checkPage() {
-        $(newsButton).shouldBe(visible.because("News button should be on every page"));
-        $(friendsButton).shouldBe(visible.because("Friends of Subscribing button should be on every page"));
-        $(groupsButton).shouldBe(visible.because("Groups info button should be on every page"));
-        $(recomendationButton).shouldBe(visible.because("Recommendation button should be on every page"));
-        $(photoButton).shouldBe(visible.because("Photo button should be on every page"));
+        $(miniUserToolbar).shouldBe(visible.because("Mini toolbar should be on every page"));
         return true;
     }
 }

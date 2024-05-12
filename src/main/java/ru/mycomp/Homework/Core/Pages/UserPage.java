@@ -16,16 +16,16 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class UserPage extends BasePage {
 
-    private By shareButton = byXpath("//*[@data-l='outlandertarget,share,t,share']");
-    private By settingButton = byXpath("//*[@data-l='outlandertarget,settings,t,settings']");
-    private By publicateButton = byXpath("//button[@data-l='t,pf_dropdown']");
-    private By noticeButton = byXpath("//span[@data-l='t,feed.posting.ui.input']");
-    private By textOfPublicationField = byXpath("//div[@data-module='postingForm/mediaText']");
-    private By submitPublicationButton = byXpath("//button[@data-l='t,button.submit']");
-    private By publicationActionButton = byXpath("//div[@data-l='t,feed-actions-menu']");
-    private By deletePublicationButton = byText("Удалить заметку");
-    private By confirmDeleteButton = byXpath("//*[@class='form-actions']/a[1]");
-    private By myEventsButton = byXpath("//*[@data-l='t,filter']/a[3]");
+    private static final By shareButton = byXpath("//*[@data-l='outlandertarget,share,t,share']");
+    private static final By settingButton = byXpath("//*[@data-l='outlandertarget,settings,t,settings']");
+    private static final By publicateButton = byXpath("//button[@data-l='t,pf_dropdown']");
+    private static final By noticeButton = byXpath("//span[@data-l='t,feed.posting.ui.input']");
+    private static final By textOfPublicationField = byXpath("//div[@data-module='postingForm/mediaText']");
+    private static final By submitPublicationButton = byXpath("//button[@data-l='t,button.submit']");
+    private static final By publicationActionButton = byXpath("//div[@data-l='t,feed-actions-menu']");
+    private static final By deletePublicationButton = byText("Удалить заметку");
+    private static final By confirmDeleteButton = byXpath("//*[@class='form-actions']/a[1]");
+    private static final By myEventsButton = byXpath("//*[@data-l='t,filter']/a[3]");
     public UserPage() {
         checkPage();
     }

@@ -10,12 +10,12 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SettingPage implements LoadablePage{
 
-    private By changeThemeButton = byXpath("//a[@data-l='t,set_theme']");
-    private By darkThemeButton = byXpath("//*[@data-theme='dark']/span");
-    private By lightThemeButton = byXpath("//*[@data-theme='light']/span");
-    private By personalInfoSettingButton = byXpath("//a[@data-l='t,personal_info']");
-    private By privacySettingButton = byXpath("//a[@data-l='t,privacy']");
-    private By profileSettingButton = byXpath("//a[@data-l='t,profile_options']");
+    private static final By changeThemeButton = byXpath("//a[@data-l='t,set_theme']");
+    private static final By darkThemeButton = byXpath("//*[@data-theme='dark']/span");
+    private static final By lightThemeButton = byXpath("//*[@data-theme='light']/span");
+    private static final By personalInfoSettingButton = byXpath("//a[@data-l='t,personal_info']");
+    private static final By privacySettingButton = byXpath("//a[@data-l='t,privacy']");
+    private static final By profileSettingButton = byXpath("//a[@data-l='t,profile_options']");
 
     public SettingPage() {
         checkPage();

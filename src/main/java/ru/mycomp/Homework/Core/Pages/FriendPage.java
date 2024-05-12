@@ -8,12 +8,12 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class FriendPage extends BasePage {
 
-    private By addFriendButton = byXpath("//a[@aria-label='Добавить в друзья']");
-    private By applicationButton = byXpath("//button[@aria-label='Запрос отправлен']");
-    private By cancelApplicationButton = byXpath("//a[@aria-label='Отменить запрос']");
-    private By writeMessageButton = byXpath("//*[@data-l='outlandertarget,sendMessage,t,sendMessage']");
-    private By settingOfSubscribingButton = byXpath("//button[@aria-label='Настроить подписку на профиль']");
-    private By importantInfoButton = byXpath("//*[@data-l='t,filter']/a[2]");
+    private static final By addFriendButton = byXpath("//a[@aria-label='Добавить в друзья']");
+    private static final By applicationButton = byXpath("//button[@aria-label='Запрос отправлен']");
+    private static final By cancelApplicationButton = byXpath("//a[@aria-label='Отменить запрос']");
+    private static final By writeMessageButton = byXpath("//*[@data-l='outlandertarget,sendMessage,t,sendMessage']");
+    private static final By settingOfSubscribingButton = byXpath("//button[@aria-label='Настроить подписку на профиль']");
+    private static final By importantInfoButton = byXpath("//*[@data-l='t,filter']/a[2]");
 
     public FriendPage() {
         checkPage();

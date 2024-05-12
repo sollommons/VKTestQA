@@ -10,9 +10,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage implements LoadablePage{
 
-    private By loginField = byXpath("//input[@id='field_email']");
-    private By passwordField = byXpath("//input[@id='field_password']");
-    private By loginButton = byXpath("//*[@value='Войти в Одноклассники']");
+    private static final By loginField = byXpath("//input[@id='field_email']");
+    private static final By passwordField = byXpath("//input[@id='field_password']");
+    private static final By loginButton = byXpath("//*[@value='Войти в Одноклассники']");
 
     public LoginPage() {
         checkPage();

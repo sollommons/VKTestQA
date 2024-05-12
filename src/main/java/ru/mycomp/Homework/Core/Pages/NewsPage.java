@@ -1,6 +1,7 @@
 package ru.mycomp.Homework.Core.Pages;
 
 import org.openqa.selenium.By;
+import ru.mycomp.Homework.Core.Elements.NavigationBlockElement;
 
 import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Condition.visible;
@@ -10,10 +11,12 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class NewsPage extends BasePage {
 
-    private By searchField = byXpath("//input[@name='st.query']");
-    private By momentsButton = byXpath("//button[@data-l='t,to_moments']");
-    private By upperHobbyButton = byXpath("//button[@data-l='t,to_hobbies']");
-    private By blockFriendsStream = byXpath("//div[@data-sticky-id='friendsStream']");
+    private static final By searchField = byXpath("//input[@name='st.query']");
+    private static final By momentsButton = byXpath("//button[@data-l='t,to_moments']");
+    private static final By upperHobbyButton = byXpath("//button[@data-l='t,to_hobbies']");
+    private static final By blockFriendsStream = byXpath("//div[@data-sticky-id='friendsStream']");
+
+    private final NavigationBlockElement navBlock = new NavigationBlockElement();
 
     public NewsPage() {
         checkPage();
@@ -40,8 +43,7 @@ public class NewsPage extends BasePage {
     }
 
     public UserPage openUserPage() {
-        $(userButton).shouldBe(visible.because("User button should be visible to click")).click();
-        return new UserPage();
+        return navBlock.openUserPage();
     }
 
     public boolean checkMoment() {

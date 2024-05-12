@@ -16,7 +16,7 @@ public class CopyUserURLTest extends BaseTest {
     @BeforeEach
     public void setup() {
         LoginPage loginPage = new LoginPage();
-        userPage = loginPage.authorize(login, password)
+        userPage = loginPage.authorize(TEST_BOT.login(), TEST_BOT.password())
                 .openUserPage();
     }
 

@@ -5,14 +5,13 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import ru.mycomp.Homework.Core.objects.TestBot;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
 
 public class BaseTest {
-    protected static final String login = "technopol60";
-    protected static final String password = "technopolisPassword";
-
+    protected static final TestBot TEST_BOT = new TestBot("technopol60", "technopolisPassword");
     @BeforeEach
     public void setupConf() {
         Configuration.browser = CHROME;
