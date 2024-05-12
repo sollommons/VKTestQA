@@ -4,9 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.mycomp.Homework.Core.Pages.LoginPage;
-import ru.mycomp.Homework.Core.Pages.NewsPage;
 import ru.mycomp.Homework.Core.Pages.SettingPage;
-import ru.mycomp.Homework.Core.Pages.UserPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
@@ -17,9 +15,9 @@ public class ChangeThemeTest extends BaseTest {
     @BeforeEach
     public void setup() {
         LoginPage loginPage = new LoginPage();
-        NewsPage newsPage = loginPage.authorize(login, password);
-        UserPage userPage = newsPage.openUserPage();
-        settingPage = userPage.openSettings();
+        settingPage = loginPage.authorize(login, password)
+                .openUserPage()
+                .openSettings();
     }
 
     @Test

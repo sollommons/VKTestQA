@@ -18,11 +18,12 @@ public class SearchPage extends BasePage {
     }
 
     @Override
-    protected void checkPage() {
+    public boolean checkPage() {
         super.checkPage();
         $(upperPeopleButton).shouldBe(visible.because("People button should be visible search page"));
         $(upperPublicationsButton).shouldBe(visible.because("Publication button should be visible search page"));
         $(upperGroupsButton).shouldBe(visible.because("Groups button should be visible search page"));
+        return true;
     }
 
     public FriendPage openFriendPage() {

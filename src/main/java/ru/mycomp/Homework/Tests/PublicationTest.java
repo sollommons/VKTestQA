@@ -1,6 +1,5 @@
 package ru.mycomp.Homework.Tests;
 
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.*;
 import ru.mycomp.Homework.Core.Pages.LoginPage;
 import ru.mycomp.Homework.Core.Pages.NewsPage;
@@ -22,10 +21,10 @@ public class PublicationTest extends BaseTest {
     @RepeatedTest(value = 3, name = "Test number {currentRepetition}/{totalRepetitions}")
     @Tag("user")
     public void publicateSmth() {
-        userPage = newsPage.openUserPage();
-        userPage.chooseToPublicate();
-        userPage.publicate();
-        String textOfPublication = userPage.checkPublication();
+        String textOfPublication = newsPage.openUserPage()
+                .chooseToPublicate()
+                .publicate()
+                .checkPublication();
         Assertions.assertEquals("Приветственная публикация", textOfPublication);
     }
 

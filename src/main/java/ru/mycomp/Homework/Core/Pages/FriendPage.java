@@ -20,15 +20,17 @@ public class FriendPage extends BasePage {
     }
 
     @Override
-    protected void checkPage() {
+    public boolean checkPage() {
         super.checkPage();
         $(writeMessageButton).shouldBe(visible.because("Message button should be on friend page"));
         $(settingOfSubscribingButton).shouldBe(visible.because("Settings of Subscribing button should be on friend page"));
         $(importantInfoButton).shouldBe(visible.because("Important info button should be on friend page"));
+        return true;
     }
 
-    public void addFriend() {
+    public FriendPage addFriend() {
         $(addFriendButton).shouldBe(visible.because("Add friend button should be to add friend")).click();
+        return this;
     }
 
     public String checkFriend() {

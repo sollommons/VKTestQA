@@ -20,11 +20,12 @@ public class NewsPage extends BasePage {
     }
 
     @Override
-    protected void checkPage() {
+    public boolean checkPage() {
         super.checkPage();
         $(momentsButton).shouldBe(visible.because("Moments should be visible news page"));
         $(upperHobbyButton).shouldBe(visible.because("Hobby button should be visible news page"));
         $(blockFriendsStream).shouldBe(visible.because("Friends stream should be visible news page"));
+        return true;
     }
 
     public void set(String name) {

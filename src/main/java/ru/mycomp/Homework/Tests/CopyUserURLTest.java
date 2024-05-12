@@ -16,16 +16,15 @@ public class CopyUserURLTest extends BaseTest {
     @BeforeEach
     public void setup() {
         LoginPage loginPage = new LoginPage();
-        NewsPage newsPage = loginPage.authorize(login, password);
-        userPage = newsPage.openUserPage();
+        userPage = loginPage.authorize(login, password)
+                .openUserPage();
     }
 
     @Test
     @Tag("user")
     @DisplayName("Copy user's URL")
     public void copyUserURL() throws IOException, UnsupportedFlavorException {
-        String userURl;
-        userURl = userPage.copyUrl();
+        String userURl = userPage.copyUrl();
         Assertions.assertEquals("https://ok.ru/profile/586489906527?utm_campaign=web_share&utm_content=profile", userURl,
                 "Ссылка скопирована неправильно");
     }

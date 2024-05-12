@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
+public class LoginPage implements LoadablePage{
 
     private By loginField = byXpath("//input[@id='field_email']");
     private By passwordField = byXpath("//input[@id='field_password']");
@@ -18,10 +18,12 @@ public class LoginPage {
         checkPage();
     }
 
-    public void checkPage() {
+    @Override
+    public boolean checkPage() {
         $(loginField).shouldBe(visible.because("Login field should be visible on login page"));
         $(passwordField).shouldBe(visible.because("Password field should be visible on login page"));
         $(loginButton).shouldBe(visible.because("Login button should be visible on login page"));
+        return true;
     }
 
     public LoginPage open() {
@@ -29,12 +31,14 @@ public class LoginPage {
         return this;
     }
 
-    public void setLogin(String login) {
+    public LoginPage setLogin(String login) {
         $(loginField).shouldBe(visible.because("Login field should be visible for users to set login")).setValue(login);
+        return this;
     }
 
-    public void setPassword(String password) {
+    public LoginPage setPassword(String password) {
         $(passwordField).shouldBe(visible.because("Password field should be visible for users to set password")).setValue(password);
+        return this;
     }
 
     public NewsPage login() {

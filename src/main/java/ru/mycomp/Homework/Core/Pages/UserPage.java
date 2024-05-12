@@ -31,11 +31,12 @@ public class UserPage extends BasePage {
     }
 
     @Override
-    protected void checkPage() {
+    public boolean checkPage() {
         super.checkPage();
         $(shareButton).shouldBe(visible.because("Share button should be visible user page"));
         $(settingButton).shouldBe(visible.because("Settings button should be visible user page"));
         $(myEventsButton).shouldBe(visible.because("Events button should be visible user page"));
+        return true;
     }
 
     public String copyUrl() throws IOException, UnsupportedFlavorException {
@@ -44,14 +45,16 @@ public class UserPage extends BasePage {
         return (String) Toolkit.getDefaultToolkit().getSystemClipboard().getData(DataFlavor.stringFlavor);
     }
 
-    public void chooseToPublicate() {
+    public UserPage chooseToPublicate() {
         $(publicateButton).shouldBe(interactable.because("Publicate button should be interactable to publicate")).click();
         $(noticeButton).shouldBe(visible.because("Noitce button should be visible to choose")).click();
+        return this;
     }
 
-    public void publicate() {
+    public UserPage publicate() {
         $(textOfPublicationField).shouldBe(visible.because("Field should be visible to write")).setValue("Приветственная публикация");
         $(submitPublicationButton).shouldBe(enabled.because("Submit button should be enabled to publicate")).click();
+        return this;
     }
 
     public String checkPublication() {

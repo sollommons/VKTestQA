@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
-public class SettingPage {
+public class SettingPage implements LoadablePage{
 
     private By changeThemeButton = byXpath("//a[@data-l='t,set_theme']");
     private By darkThemeButton = byXpath("//*[@data-theme='dark']/span");
@@ -18,13 +18,14 @@ public class SettingPage {
     private By profileSettingButton = byXpath("//a[@data-l='t,profile_options']");
 
     public SettingPage() {
-        checkpage();
+        checkPage();
     }
-
-    private void checkpage() {
+    @Override
+    public boolean checkPage() {
         $(personalInfoSettingButton).shouldBe(visible.because("Personal info settings button should be visible settings page"));
         $(privacySettingButton).shouldBe(visible.because("Privacy settings button should be visible settings page"));
         $(profileSettingButton).shouldBe(visible.because("Profile settings button should be visible settings page"));
+        return true;
     }
 
     public void setDarkTheme() {

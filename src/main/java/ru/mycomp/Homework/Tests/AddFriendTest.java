@@ -30,9 +30,9 @@ public class AddFriendTest extends BaseTest {
     @Tag("friends")
     public void addFriends(String userName) {
         newsPage.set(userName);
-        SearchPage searchPage = newsPage.search();
-        friendPage = searchPage.openFriendPage();
-        friendPage.addFriend();
+        friendPage = newsPage.search()
+                .openFriendPage()
+                .addFriend();
         Assertions.assertEquals("Запрос отправлен", friendPage.checkFriend());
     }
 

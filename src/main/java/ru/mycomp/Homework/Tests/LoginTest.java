@@ -11,11 +11,10 @@ import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 public class LoginTest extends BaseTest {
     @Test
     public void loginToOK() {
-        LoginPage loginPage = new LoginPage();
-        loginPage.open();
-        loginPage.setLogin(login);
-        loginPage.setPassword(password);
-        NewsPage newsPage = loginPage.login();
+        NewsPage newsPage = new LoginPage()
+                .setLogin(login)
+                .setPassword(password)
+                .login();
         Assertions.assertTrue(newsPage.checkMoment(), "Открылась не та страница");
     }
 
