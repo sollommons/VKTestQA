@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.mycomp.Homework.Core.Objects.TestBot;
 import ru.mycomp.Homework.Core.Objects.TestBotsDataProvider;
 import ru.mycomp.Homework.Core.Pages.NewsPage;
 import ru.mycomp.Homework.Core.Pages.LoginPage;
@@ -24,10 +25,10 @@ public class LoginTest {
     }
 
     @Test(dataProvider = "testBotsData", dataProviderClass = TestBotsDataProvider.class)
-    public void loginToOK(String login, String password) {
+    public void loginToOK(TestBot testBot) {
         NewsPage newsPage = new LoginPage()
-                .setLogin(login)
-                .setPassword(password)
+                .setLogin(testBot.login())
+                .setPassword(testBot.password())
                 .login();
         Assertions.assertTrue(newsPage.checkMoment(), "Открылась не та страница");
     }
