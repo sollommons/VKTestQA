@@ -10,12 +10,13 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SettingPage implements LoadablePage{
 
-    private static final By changeThemeButton = byXpath("//a[@data-l='t,set_theme']");
-    private static final By darkThemeButton = byXpath("//*[@data-theme='dark']/span");
-    private static final By lightThemeButton = byXpath("//*[@data-theme='light']/span");
-    private static final By personalInfoSettingButton = byXpath("//a[@data-l='t,personal_info']");
-    private static final By privacySettingButton = byXpath("//a[@data-l='t,privacy']");
-    private static final By profileSettingButton = byXpath("//a[@data-l='t,profile_options']");
+    private static final By appearanceButton = byXpath(".//*[@data-l='eueContainer,settings']/a[10]");
+    private static final By changeThemeButton = byXpath(".//a[@data-l='t,set_theme']");
+    private static final By darkThemeButton = byXpath(".//*[@data-theme='dark']/span");
+    private static final By lightThemeButton = byXpath(".//*[@data-theme='light']/span");
+    private static final By personalInfoSettingButton = byXpath(".//a[@data-l='t,profile_form']");
+    private static final By safetySettingButton = byXpath(".//a[@data-l='t,privacy_option']");
+    private static final By privacySettingButton = byXpath(".//a[@data-l='t,privacy']");
 
     public SettingPage() {
         checkPage();
@@ -24,8 +25,13 @@ public class SettingPage implements LoadablePage{
     public boolean checkPage() {
         $(personalInfoSettingButton).shouldBe(visible.because("Personal info settings button should be visible settings page"));
         $(privacySettingButton).shouldBe(visible.because("Privacy settings button should be visible settings page"));
-        $(profileSettingButton).shouldBe(visible.because("Profile settings button should be visible settings page"));
+        $(safetySettingButton).shouldBe(visible.because("Profile settings button should be visible settings page"));
         return true;
+    }
+
+    public SettingPage openAppearanceSettings() {
+        $(appearanceButton).shouldBe(visible.because("Appearance button should be visible to open")).click();
+        return this;
     }
 
     public void setDarkTheme() {

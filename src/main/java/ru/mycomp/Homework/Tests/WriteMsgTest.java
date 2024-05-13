@@ -1,13 +1,13 @@
 package ru.mycomp.Homework.Tests;
 
 import org.junit.jupiter.api.*;
+import ru.mycomp.Homework.Core.Objects.MsgRegistry;
 import ru.mycomp.Homework.Core.Pages.LoginPage;
 import ru.mycomp.Homework.Core.Pages.MessagePage;
 
 import static ru.mycomp.Homework.Core.Pages.BasePage.logOut;
 
-
-public class CreateChatTest extends BaseTest {
+public class WriteMsgTest extends BaseTest {
 
     MessagePage msgPage;
     @BeforeEach
@@ -15,15 +15,15 @@ public class CreateChatTest extends BaseTest {
     {
         msgPage = new LoginPage()
                 .authorize(TEST_BOT.login(), TEST_BOT.password())
-                .openMsgPage();
+                .openMsgPage()
+                .createChat();
     }
 
-    @Test
+    @RepeatedTest(value = 3, name = "Test number {currentRepetition}/{totalRepetitions}")
     @Tag("Messages")
-    @DisplayName("Create New Chat")
-    public void createChat()  {
-        msgPage.createChat();
-        Assertions.assertTrue(msgPage.checkTitle("Пустой чат"));
+    @DisplayName("writeMsg")
+    public void writeMsg() {
+        msgPage.writeMsg(MsgRegistry.getMsg());
     }
 
     @AfterEach
