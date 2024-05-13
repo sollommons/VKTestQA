@@ -22,7 +22,9 @@ public class ChangeThemeTest extends BaseTest {
 
     @Test
     public void changeTheme() {
-        settingPage.setDarkTheme();
+        settingPage
+                .openAppearanceSettings()
+                .setDarkTheme();
         assertTrue(settingPage.checkDarkTheme());
     }
 
