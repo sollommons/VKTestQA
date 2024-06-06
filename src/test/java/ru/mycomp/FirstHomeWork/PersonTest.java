@@ -3,7 +3,7 @@ package ru.mycomp.FirstHomeWork;
 
 import org.junit.Assert;
 import org.junit.Test;
-import ru.mycomp.FirstHomework.Person;
+import ru.mycomp.Homework1.Person;
 
 public class PersonTest {
     @Test
